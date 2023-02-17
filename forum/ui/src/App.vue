@@ -38,16 +38,17 @@ export default defineComponent({
   async mounted() {
     // Setup conductor websocket
     this.client = await AppAgentWebsocket.connect('', 'forum', 12000);
+    console.log('client initialized');
 
     // Setup profiles store
     const profilesClient = new ProfilesClient(this.client, 'forum', 'profiles');
+    console.log('profiles client initialized');
+
     this.profilesStore = new ProfilesStore(profilesClient, {
       avatarMode: "avatar-optional",
     });
-
-    const my_profile = await this.profilesStore.client.getAgentProfile(this.client.myPubKey);
-    console.log('profiles store', my_profile);
-
+    console.log('profiles store initialized');
+    
     this.loading = false;
   },
   provide() {
