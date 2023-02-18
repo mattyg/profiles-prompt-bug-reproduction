@@ -8,7 +8,7 @@
         <h1>Forum</h1>
         <span>Please create a profile</span>
         <div id="content">
-          <profiles-context :profilesStore="profilesStore">
+          <profiles-context :store="profilesStore">
             <profile-prompt>
               test
             </profile-prompt>
